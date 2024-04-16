@@ -1,0 +1,35 @@
+.mob-btn {
+    display: none !important;
+}
+.offcanvas-header{
+    justify-content: end !important;
+    background-color: black !important;
+    color: white !important;
+    border: none !important;
+}
+.justify{
+    justify-content: space-between;
+    align-items: center;
+}
+.main{
+    background-color: #4d84a517;
+    padding: 15px;
+}
+.align-center{
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .mob-nav {
+        display: none !important;
+    }
+
+    .web-btn {
+        display: none !important;
+    }
+
+    .mob-btn {
+        display: block !important;
+    }
+}
