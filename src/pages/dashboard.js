@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import SideBar from "../components/Sidebar";
-import { Button, Card, CardContent, IconButton } from "@mui/material";
+import { Card, CardContent, IconButton } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import LogoutIcon from '@mui/icons-material/Logout';
 import "../../src/custom.css";
 import AnalyticsIcon from '@mui/icons-material/Analytics';
+import Logout from "../components/Logout";
 const Dashboard = () => {
     const [isOpen, setIsopen] = useState(true);
     const handleOpen = () => {
@@ -26,7 +26,7 @@ const Dashboard = () => {
                             <IconButton className="mob-btn" data-bs-toggle="offcanvas" data-bs-target="#mob-canvas" aria-controls="mob-canvas">
                                 <MenuIcon />
                             </IconButton>
-                            <Button startIcon={<LogoutIcon />} >Logout</Button>
+                            <Logout/>
                         </div>
                         {/* Page Contents */}
                         <div className="row mt-3 main">

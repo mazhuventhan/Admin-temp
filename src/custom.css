@@ -1,25 +1,35 @@
+body{
+    font-family: cursive !important;
+  }
 .mob-btn {
     display: none !important;
 }
-.offcanvas-header{
+
+.offcanvas-header {
     justify-content: end !important;
     background-color: black !important;
     color: white !important;
     border: none !important;
 }
-.justify{
+
+.justify {
     justify-content: space-between;
     align-items: center;
 }
-.main{
+
+.main {
     background-color: #4d84a517;
     padding: 15px;
 }
-.align-center{
-    align-items: center;
-    justify-content: center;
-}
 
+.align-center {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.link{
+    text-decoration: none !important;
+}
 @media only screen and (max-width: 768px) {
     .mob-nav {
         display: none !important;
@@ -32,4 +42,15 @@
     .mob-btn {
         display: block !important;
     }
+}
+
+.nav-link {
+    color: white;
+    cursor: pointer;
+}
+.nav-link:hover {
+    color: blue;
+}
+.active {
+    color: blue;
 }
