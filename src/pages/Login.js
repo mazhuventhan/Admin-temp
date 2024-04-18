@@ -20,7 +20,7 @@ const Login = () => {
                 <div className="row">
                     <div className="col-lg-4"></div>
                     <div className="col-lg-4 col-12 align-center" style={{ height: '100vh' }}>
-                        <Card className="p-3 w-100">
+                        <Card elevation={5} className="p-3 w-100">
                             <CardContent >
                                 <form onSubmit={handleSubmit}>
                                     <div className="text-center">

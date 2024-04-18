@@ -12,12 +12,18 @@ import Logout from "../components/Logout";
 import Table from "../components/Table";
 import Swal from "sweetalert2";
 import { useMyContext } from "../context/context";
+import Modal from 'react-bootstrap/Modal';
+import Loader from "../components/Loader";
 const Banners = () => {
     const [isOpen, setIsopen] = useState(true);
-    const data=useMyContext();
-    useEffect(()=>{
-     console.log(data,'data');
-    },[])
+    const [isView, setIsView] = useState(false);
+    const data = useMyContext();
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, [])
     const handleOpen = () => {
         setIsopen(!isOpen);
     }
@@ -40,34 +46,38 @@ const Banners = () => {
         }
         )
     }
+    const handleViewOpen = () => setIsView(true);
+    const handleClose = () => {
+        setIsView(!isView);
+    }
     const columns = [
-        { field: 'id', headerName: 'ID', width: 120, sortable: false, filterable: false },
-        { field: 'firstName', headerName: 'First name', width: 130, sortable: false, filterable: false },
-        { field: 'lastName', headerName: 'Last name', width: 130, sortable: false, filterable: false },
+        { field: 'id', headerName: 'ID', width: 120, sortable: false, disableColumnMenu: true },
+        { field: 'firstName', headerName: 'First name', width: 130, sortable: false, disableColumnMenu: true },
+        { field: 'lastName', headerName: 'Last name', width: 130, sortable: false, disableColumnMenu: true },
         {
             field: 'age',
             headerName: 'Age',
             type: 'number',
-            width: 90,
+            width: 90, disableColumnMenu: true
         },
         {
             field: 'fullName',
             headerName: 'Full name',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 160,
+            width: 160, disableColumnMenu: true,
             valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
         },
         {
             field: 'Action',
             headerName: 'Action',
             type: 'number',
-            width: 190,
+            width: 190, disableColumnMenu: true,
             renderCell: (params) => {
                 return (
                     <ButtonGroup>
                         <IconButton><EditIcon /></IconButton>
-                        <IconButton><VisibilityIcon /></IconButton>
+                        <IconButton onClick={handleViewOpen} ><VisibilityIcon /></IconButton>
                         <IconButton onClick={handleRemove} ><DeleteIcon /></IconButton>
                     </ButtonGroup>
                 )
@@ -104,14 +114,17 @@ const Banners = () => {
                             <Logout />
                         </div>
                         {/* Page Contents */}
-                        <Card>
-                            <CardContent>
-                                <div className="text-end mb-4">
-                                    <Button variant="contained" endIcon={<AddIcon />} >Add New</Button>
-                                </div>
-                                <Table rows={rows} columns={columns} />
-                            </CardContent>
-                        </Card>
+                        {isLoading ?
+                            <Loader /> :
+                            <Card>
+                                <CardContent>
+                                    <div className="text-end mb-4">
+                                        <Button onClick={() => window.location.replace('/newbanner')} variant="contained" endIcon={<AddIcon />} >Add New</Button>
+                                    </div>
+                                    <Table rows={rows} columns={columns} />
+                                </CardContent>
+                            </Card>
+                        }
 
 
                     </div>
@@ -127,6 +140,21 @@ const Banners = () => {
                     <SideBar />
                 </div>
             </div>
+            {/* View Modal */}
+            <Modal
+                show={isView}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>View</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+
+                </Modal.Body>
+            </Modal>
+
         </>
     )
 }

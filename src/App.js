@@ -4,6 +4,7 @@ import NotFound from './components/notFound';
 import Dashboard from './pages/dashboard';
 import Login from './pages/Login';
 import Banners from './pages/banners';
+import AddBanner from './pages/newBanner';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Route exact path="/" element={<Login/>} />  
         <Route exact path="dashboard" element={<Dashboard/>} />  
         <Route exact path="banners" element={<Banners/>} /> 
-        <Route element={<NotFound/>} />
+        <Route exact path="newbanner" element={<AddBanner/>} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
     </Router>
   );

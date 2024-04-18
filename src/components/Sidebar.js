@@ -25,7 +25,7 @@ const SideBar = () => {
                     </div>
                     <div >
                         <Link to={"/banners"} className="link" >
-                            <div className={location.pathname.includes("banners") ? "mt-3 d-flex nav-link active" : "mt-3 d-flex  nav-link "}>
+                            <div className={location.pathname.includes("banner") ? "mt-3 d-flex nav-link active" : "mt-3 d-flex  nav-link "}>
                                 <AutoAwesomeMosaicIcon />
                                 <h6 className="ms-2">Banners</h6>
                             </div>
