@@ -7,6 +7,7 @@ import "../../src/custom.css";
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import Logout from "../components/Logout";
 import Loader from "../components/Loader";
+import ChatBox from "../chatbot/chatBot";
 const Dashboard = () => {
     const [isOpen, setIsopen] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +22,7 @@ const Dashboard = () => {
     }, [])
     return (
         <>
+        <ChatBox/>
 
             <div className="container-fluid p-0" style={{ overflow: 'hidden' }}>
                 <div className="row">

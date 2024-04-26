@@ -5,6 +5,7 @@ import Dashboard from './pages/dashboard';
 import Login from './pages/Login';
 import Banners from './pages/banners';
 import AddBanner from './pages/newBanner';
+import ChatBox from './chatbot/chatBot';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route exact path="dashboard" element={<Dashboard/>} />  
         <Route exact path="banners" element={<Banners/>} /> 
         <Route exact path="newbanner" element={<AddBanner/>} />
+        <Route exact path="chatAi" element={<ChatBox/>} />
+
         <Route path='*' element={<NotFound/>} />
       </Routes>
     </Router>

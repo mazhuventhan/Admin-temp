@@ -1,0 +1,38 @@
+.chatbox-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 1000; /* Ensure it's above other elements */
+    background-color: black !important;
+}
+
+
+.chatbox-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.chatbox-button:hover {
+    background-color: #128C7E; /* Darker shade of WhatsApp green */
+}
+
+.chatbox-button span {
+    display: inline-block;
+    margin-left: 5px;
+}
