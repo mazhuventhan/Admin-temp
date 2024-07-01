@@ -12,12 +12,13 @@ const AddBanner = () => {
     }
     return (
         <>
-            <div className="container-fluid p-0" style={{ overflow: 'hidden' }}>
+            <div className="container-fluid p-0 " style={{ overflow: 'hidden' }}>
                 <div className="row">
-                    <div className={isOpen ? "col-lg-2 mob-nav p-0" : "d-none"}>
+                    <div className={`${isOpen ? "col-lg-2  mob-nav p-0" : "d-none"} sidebar_layout`}>
                         <SideBar />
                     </div>
-                    <div className={isOpen ? "col-lg-10 col-12 p-2 " : "col-12"}>
+                    <div className={`${isOpen ? "col-lg-10 col-12" : "col-12 w-100"} dashboard_card main_layout`} >
+
                         <div className="d-flex w-100 justify">
                             <IconButton className="web-btn" onClick={handleOpen} >
                                 <MenuIcon />
@@ -28,37 +29,42 @@ const AddBanner = () => {
                             <Logout />
                         </div>
                         {/* Page Contents */}
-                        <div className="row mt-3 main">
-                            <div className="col-12">
-                                <Card>
-                                    <CardContent>
-                                        <div className="text-start"><h4>Add New Banner</h4></div>
-                                        <form>
-                                            <div className="row">
-                                                <div className="col-lg-6 col-12">
-                                                    <div className="mt-3">
-                                                        <label>Name</label>
-                                                        <input className="form-control" />
+                   
+                            <div className="row mt-3 main">
+                                <div class=" row sub-menu">
+                                    <div className=" col-12">
+                                        <Card>
+                                            <CardContent>
+                                                <div className="text-start"><h4 className="fw-bold">Add New Banner</h4></div>
+                                                <form>
+                                                    <div className="row">
+                                                        <div className="col-lg-6 col-12">
+                                                            <div className="mt-3">
+                                                                <label>Name</label>
+                                                                <input className="form-control" />
+                                                            </div>
+                                                            <div className="mt-3">
+                                                                <label>Choose Image</label>
+                                                                <input type="file" className="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-lg-6 col-12">
+                                                            <div className="mt-3">
+                                                                <label>Label</label>
+                                                                <input className="form-control" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div className="mt-3">
-                                                        <label>Choose Image</label>
-                                                        <input type="file" className="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-6 col-12">
-                                                    <div className="mt-3">
-                                                        <label>Label</label>
-                                                        <input className="form-control" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <Button className="mt-3" style={{ textTransform: 'none' }} type="submit" variant="contained" >Submit</Button>
+                                                    <Button className="mt-3 btn"  type="submit" variant="contained" >Submit</Button>
 
-                                        </form>
-                                    </CardContent>
-                                </Card>
+                                                </form>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
+                        
 
                     </div>
                 </div>

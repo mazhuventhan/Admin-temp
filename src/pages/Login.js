@@ -2,6 +2,7 @@ import { Button, Card, CardContent, FormControl, IconButton, InputAdornment, Inp
 import React from "react";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Logo from "../Images/logo.png"
 const Login = () => {
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -12,6 +13,7 @@ const Login = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        localStorage.setItem("token","abc")
         window.location.replace("/dashboard")
     }
     return (
@@ -24,7 +26,8 @@ const Login = () => {
                             <CardContent >
                                 <form onSubmit={handleSubmit}>
                                     <div className="text-center">
-                                        <h4>Login to continue...</h4>
+                                        <img alt="" src={Logo}/>
+                                        <h4 className="fw-bold">Login to continue...</h4>
                                     </div>
                                     <div className="mt-3">
                                         <TextField className="w-100" type="text" required id="outlined-basic" label="Enter email" variant="outlined" />
@@ -52,7 +55,7 @@ const Login = () => {
                                             />
                                         </FormControl>
                                     </div>
-                                    <Button type="submit" className="w-100 mt-3" variant="contained" style={{ textTransform: 'none' }}>Submit</Button>
+                                    <Button type="submit" className="w-100 mt-3" variant="contained" style={{ textTransform: 'none',backgroundColor:"#FF6C00" }}>Submit</Button>
                                 </form>
                             </CardContent>
 

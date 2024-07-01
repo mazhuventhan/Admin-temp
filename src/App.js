@@ -5,18 +5,20 @@ import Dashboard from './pages/dashboard';
 import Login from './pages/Login';
 import Banners from './pages/banners';
 import AddBanner from './pages/newBanner';
-import ChatBox from './chatbot/chatBot';
+import ProtectedRoute from './components/protectedRoute';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route exact path="/" element={<Login/>} />  
-        <Route exact path="dashboard" element={<Dashboard/>} />  
-        <Route exact path="banners" element={<Banners/>} /> 
-        <Route exact path="newbanner" element={<AddBanner/>} />
-        <Route exact path="chatAi" element={<ChatBox/>} />
-
+     
+       
+       {/* Protected Route Pages */}
+        <Route path="/dashboard" element={<ProtectedRoute ><Dashboard /></ProtectedRoute>} />
+        <Route path="/banners" element={<ProtectedRoute ><Banners /></ProtectedRoute>} />
+        <Route path="/addBanner" element={<ProtectedRoute ><AddBanner /></ProtectedRoute>} />
+       {/* NotFound page */}
         <Route path='*' element={<NotFound/>} />
       </Routes>
     </Router>

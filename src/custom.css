@@ -1,15 +1,38 @@
-body{
-    font-family: cursive !important;
-  }
+@font-face {
+    font-family: 'poppin-bold';
+    src: url("../src/assets/fonts/Poppins-Bold.otf") format('truetype');
+}
+
+@font-face {
+    font-family: 'poppin-light';
+    src: url("../src/assets/fonts/Poppins-Light.otf") format('truetype');
+}
+
+.btn {
+    font-family: "poppin-light" !important;
+    text-transform: none !important;
+    border-radius: 18px !important;
+    background-color: #FF6C00 !important;
+    color: white !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+body {
+    font-family: 'poppin-light' !important;
+}
+
 .mob-btn {
     display: none !important;
 }
 
 .offcanvas-header {
     justify-content: end !important;
-    background-color: black !important;
-    color: white !important;
     border: none !important;
+    background-color: rgba(255, 107, 1, 0.173);
+    color: black;
 }
 
 .justify {
@@ -18,8 +41,8 @@ body{
 }
 
 .main {
-    background-color: #4d84a517;
     padding: 15px;
+
 }
 
 .align-center {
@@ -27,9 +50,28 @@ body{
     align-items: center !important;
     justify-content: center !important;
 }
-.link{
+
+.link {
     text-decoration: none !important;
 }
+
+.sidebar_layout {
+    width: 23%;
+}
+
+.main_layout {
+    width: 77%;
+}
+
+.side-card {
+    background-color: #ff6b012c !important;
+    color: #FF6C00;
+    height: 100vh;
+    width: 23%;
+    position: fixed;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+}
+
 @media only screen and (max-width: 768px) {
     .mob-nav {
         display: none !important;
@@ -42,18 +84,52 @@ body{
     .mob-btn {
         display: block !important;
     }
+
+    .main_layout {
+        width: 100% !important;
+    }
+    .side-card {
+        width: 100% !important;
+    }
 }
 
 .nav-link {
-    color: white;
+    color: rgb(15 15 16);
     cursor: pointer;
 }
+
 .nav-link:hover {
-    color: blue;
+    color: #FF6C00;
 }
-.active {
-    color: blue;
+
+.active-link-text {
+    color: #FF6C00;
+    margin: 0px;
 }
-p{
+
+p {
     margin-bottom: 0px;
+}
+
+.dashboard_card {
+    background-color: #ffff;
+}
+
+.dash_text {
+    font-size: 17px;
+    font-weight: 500;
+    margin-left: 10px !important;
+    margin-bottom: 0px !important;
+}
+
+.dash_count {
+    background-color: #fc5d14d2 !important;
+}
+
+.dash_count_text {
+    color: #fff;
+}
+
+.swal2-confirm {
+    background-color: #FF6C00 !important;
 }

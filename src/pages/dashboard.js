@@ -7,7 +7,9 @@ import "../../src/custom.css";
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import Logout from "../components/Logout";
 import Loader from "../components/Loader";
-import ChatBox from "../chatbot/chatBot";
+import PermMediaIcon from '@mui/icons-material/PermMedia';
+import { Link } from "react-router-dom";
+
 const Dashboard = () => {
     const [isOpen, setIsopen] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
@@ -22,14 +24,15 @@ const Dashboard = () => {
     }, [])
     return (
         <>
-        <ChatBox/>
 
-            <div className="container-fluid p-0" style={{ overflow: 'hidden' }}>
+
+            <div className="container-fluid p-0 " style={{ overflow: 'hidden' }}>
                 <div className="row">
-                    <div className={isOpen ? "col-lg-2 mob-nav p-0" : "d-none"}>
+                    <div className={`${isOpen ? "col-lg-2  mob-nav p-0" : "d-none"} sidebar_layout`}>
                         <SideBar />
                     </div>
-                    <div className={isOpen ? "col-lg-10 col-12 p-2 " : "col-12"}>
+                    <div className={`${isOpen ? "col-lg-10 col-12  " : "col-12 w-100"} dashboard_card main_layout`} >
+
                         <div className="d-flex w-100 justify">
                             <IconButton className="web-btn" onClick={handleOpen} >
                                 <MenuIcon />
@@ -43,16 +46,42 @@ const Dashboard = () => {
                         {isLoading ?
                             <Loader /> :
                             <div className="row mt-3 main">
-                                <div className="col-lg-3 col-md-6 col-12">
-                                    <Card elevation={5}>
-                                        <CardContent>
-                                            <h5>Count</h5>
-                                            <div className="d-flex justify">
-                                                <AnalyticsIcon />
-                                                <h3>45</h3>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
+                                <div class="p-5 row sub-menu">
+                                    <div className="col-lg-4 col-md-6 col-12">
+                                        <Card elevation={5} className="dash_count mb-3">
+                                            <Link to="/banners" style={{ textDecoration: "none",color:"white" }} >
+                                                <CardContent>
+                                                    <h5 class="dash_count_text">Banners</h5>
+                                                    <div className="d-flex justify">
+                                                        <PermMediaIcon color="white" />
+                                                        <h3 class="dash_count_text">45</h3>
+                                                    </div>
+                                                </CardContent>
+                                            </Link>
+                                        </Card>
+                                    </div>
+                                    <div className="col-lg-4 col-md-6 col-12">
+                                        <Card elevation={5} className="dash_count mb-3">
+                                            <CardContent>
+                                                <h5 class="dash_count_text">Articles</h5>
+                                                <div className="d-flex justify">
+                                                    <AnalyticsIcon />
+                                                    <h3 class="dash_count_text">45</h3>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                    <div className="col-lg-4 col-md-6 col-12">
+                                        <Card elevation={5} className="dash_count mb-3">
+                                            <CardContent>
+                                                <h5 class="dash_count_text">Count</h5>
+                                                <div className="d-flex justify">
+                                                    <AnalyticsIcon />
+                                                    <h3 class="dash_count_text">45</h3>
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    </div>
                                 </div>
                             </div>
                         }
